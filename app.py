@@ -1,8 +1,15 @@
 from flask import Flask, Response
 from twilio.twiml.voice_response import VoiceResponse
 
-app = Flask(__FrontDesk__)
+# Flask instance
+app = Flask(__app__)
 
+# Root route for browser testing
+@app.route("/")
+def home():
+    return "AI Receptionist is running! Use /voice for Twilio."
+
+# /voice route for Twilio POST requests
 @app.route("/voice", methods=["POST"])
 def voice():
     response = VoiceResponse()
@@ -12,6 +19,7 @@ def voice():
     )
     return Response(str(response), mimetype="text/xml")
 
-if __FrontDesk__ == "__main__":
+# Only run the app directly for local testing
+if __name__ == "__main__":
     app.run()
 
