@@ -1,7 +1,7 @@
 from flask import Flask, Response
 from twilio.twiml.voice_response import VoiceResponse
 
-app = Flask(__FrontDesk__)
+app = Flask(__name__)
 
 @app.route("/voice", methods=["POST"])
 def voice():
@@ -14,3 +14,4 @@ def voice():
 
 if __name__ == "__main__":
     app.run()
+
