@@ -2,7 +2,7 @@ from flask import Flask, Response
 from twilio.twiml.voice_response import VoiceResponse
 
 # Flask instance
-app = Flask(__app__)
+app = Flask(__name__)
 
 # Root route for browser testing
 @app.route("/")
